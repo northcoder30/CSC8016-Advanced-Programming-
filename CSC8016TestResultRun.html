@@ -1,0 +1,63 @@
+<!DOCTYPE html><html><body>
+<p>Student </p>
+<p>I. Single Threaded Correctness</p>
+<p>==============================</p>
+<p></p>
+<p> * I cannot open a transaction if the user does not appear in the initialization map.[#2]. Score = 10.0</p>
+<p>   - <span style="color: green;">GOOD (1): the test returned successfully</span></p>
+<p>   - <span style="color: green;">GOOD (1): the test returned the corrct value</span></p>
+<p> * I can always open a transaction if the user, on the other hand, appears on the initialization map.[#4]. Score = 10.0</p>
+<p>   - <span style="color: green;">GOOD (1): the test returned successfully</span></p>
+<p>   - <span style="color: green;">GOOD (2): the test returned the corrct value</span></p>
+<p>   - <span style="color: green;">GOOD (3): Can abort</span></p>
+<p>   - <span style="color: green;">Result for testing the amount (4)</span></p>
+<p> * After committing a transaction, the results provides the total changes into the account.[#8]. Score = 15.0</p>
+<p>   - <span style="color: green;">GOOD (1): the test returned successfully</span></p>
+<p>   - <span style="color: green;">GOOD (2): the test returned the corrct value</span></p>
+<p>   - <span style="color: green;">GOOD (2): I can pay money in my account</span></p>
+<p>   - <span style="color: green;">GOOD (3): I can pay money in my account</span></p>
+<p>   - <span style="color: green;">GOOD (4): Can commit</span></p>
+<p>   - <span style="color: green;">Result for testing the amount (5)</span></p>
+<p>   - <span style="color: green;">Result of the number of overall expected operations (6)</span></p>
+<p>   - <span style="color: green;">GOOD (7): Re-committing was disabled!</span></p>
+<p> * No overdraft is allowed.[#11]. Score = 13.636363636363637</p>
+<p>   - <span style="color: green;">GOOD (1): the test returned successfully</span></p>
+<p>   - <span style="color: green;">GOOD (2): the test returned the corrct value</span></p>
+<p>   - <span style="color: green;">GOOD (3): I can withdraw no money from my account</span></p>
+<p>   - <span style="color: green;">GOOD (4): You stopped the withdrawal of more money than the one in the bank account</span></p>
+<p>   - <span style="color: green;">GOOD (5): I can pay money in my account</span></p>
+<p>   - <span style="color: green;">GOOD (6): I can withdraw no money from my account</span></p>
+<p>   - <span style="color: green;">GOOD (4): Can commit</span></p>
+<p>   - <span style="color: green;">Result for testing the amount (5)</span></p>
+<p>   - <span style="color: green;">Result of the number of overall expected operations (6)</span></p>
+<p>   - <span style="color: red;">Result of the number of overall expected operations (6)</span></p>
+<p>   - <span style="color: green;">GOOD (7): Re-committing was disabled!</span></p>
+<p></p>
+<p>II. Multi-Threaded Correctness</p>
+<p>==============================</p>
+<p></p>
+<p></p>
+<p> * A single user can open concurrent transactions (Part 1).[#3]. Score = 5.0</p>
+<p>   - <span style="color: green;">GOOD (5): I cannot see the value that has not been commited yet by the other thread!</span></p>
+<p>   - <span style="color: green;">All final results for the connections are correct</span></p>
+<p>   - <span style="color: green;">All final results for the connections are correct</span></p>
+<p> * A single user can open concurrent transactions (Part 2).[#2]. Score = 5.0</p>
+<p>   - <span style="color: green;">GOOD (5): I cannot see the value that has not been commited yet by the other thread!</span></p>
+<p>   - <span style="color: green;">All final results for the connections are correct</span></p>
+<p> * Multiple users can open concurrent transactions.[#3]. Score = 6.666666666666666</p>
+<p>   - <span style="color: green;">GOOD (1): Any user should be allowed to concurrently log in in its account (e.g., through different
+possible devices).</span></p>
+<p>   - <span style="color: green;">GOOD (5): I cannot see the value that has not been commited yet by the other thread!</span></p>
+<p>   - <span style="color: red;">ERROR Connection 1:
+	-Result of the number of overall not successful operations. </span></p>
+<p> * No dirty reads allowed.[#4]. Score = 10.0</p>
+<p>   - <span style="color: green;">(7): Expecting the final amount of 3.0, as the other process did not commit</span></p>
+<p>   - <span style="color: green;">GOOD (10): the thread was not able to withdraw money that were not committed for paying</span></p>
+<p>   - <span style="color: green;">GOOD (11): can  clear out an account</span></p>
+<p>   - <span style="color: green;">All final results for the connections are correct</span></p>
+<p> * Handling aborted transactions.[#2]. Score = 10.0</p>
+<p>   - <span style="color: green;">All tests left the bank account in a consistent state</span></p>
+<p>   - <span style="color: green;">All aborting transactions were carried out correctly</span></p>
+<p></p>
+<p> Total Score: 85.30303030303031/90.0 + Remaining 10 marks... </p>
+</body></html>
